@@ -1,0 +1,88 @@
+.table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  font-size: var(--body-font-size-xs);
+  border-top: none;    /* remove top border */
+  border-bottom: none; /* remove bottom border */
+}
+
+@media (width >= 600px) {
+  .table table {
+    font-size: var(--body-font-size-s);
+  }
+}
+
+@media (width >= 900px) {
+  .table table {
+    font-size: var(--body-font-size-m);
+  }
+}
+
+/* Remove top and bottom border from header */
+.table table thead tr {
+  border-top: none;
+  border-bottom: none;
+}
+
+/* Only middle horizontal lines */
+.table table tbody tr {
+  border-bottom: 1px solid #dadada;
+}
+
+/* No header variant: keep horizontal lines */
+.table.no-header table tbody tr {
+  border-top: none;
+  border-bottom: 1px solid #dadada;
+}
+
+.table table th {
+  font-weight: 700;
+}
+
+.table table th,
+.table table td {
+  padding: 0.5em;
+  text-align: left;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* Remove top/bottom borders for bordered variant too */
+.table.bordered table th,
+.table.bordered table td {
+  border-left: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* Paragraph margin handling */
+.table table th p,
+.table table td p {
+  margin: 0;
+}
+
+.table table td p + p {
+  margin-top: 0.25em;
+}
+
+/* Striped variant */
+.table.striped tbody tr:nth-child(odd) {
+  background-color: var(--light-color);
+}
+
+/* Underline text on hover inside cells */
+.table table td:hover,
+.table table th:hover {
+  text-decoration: underline;
+}
+.table table td span:hover,
+.table table th span:hover {
+  text-decoration: underline;
+}
