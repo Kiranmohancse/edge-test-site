@@ -20,7 +20,7 @@
   --link-hover-color: #1d3ecf;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
+  --body-font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
 
   /* body sizes */
@@ -75,9 +75,10 @@ body {
   margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: var(--cds-heading-03-font-weight, 400);
 }
 
 body.appear {
@@ -106,7 +107,7 @@ h5,
 h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
-  font-family: var(--heading-font-family);
+  font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 600;
   line-height: 1.25;
   scroll-margin: 40px;
@@ -171,11 +172,10 @@ button {
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
-  margin: 12px 0;
   border: 2px solid transparent;
   border-radius: 2.4em;
   padding: 0.5em 1.2em;
-  font-family: var(--body-font-family);
+  font-family:"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   line-height: 1.25;
@@ -222,10 +222,6 @@ main img {
   width: 24px;
 }
 
-.icon img {
-  height: 100%;
-  width: 100%;
-}
 
 /* sections */
 main > .section {
@@ -251,7 +247,260 @@ main > .section:first-of-type {
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  background-color: white;
   margin: 0;
   padding: 40px 0;
+}
+/* cardstest */
+.cardstest.block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+/* Each card */
+.cardstest.block > div {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #ddd;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover gradient */
+.cardstest.block > div:hover {
+  background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+  border-color: transparent;
+}
+
+/* Heading: visible by default */
+.cardstest.block > div > div:first-child p:nth-child(1) {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+}
+
+/* Description: hidden by default */
+.cardstest.block > div > div:first-child p:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+}
+
+/* Hover effect to switch text */
+.cardstest.block > div:hover > div:first-child p:nth-child(1) {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+}
+
+.cardstest.block > div:hover > div:first-child p:nth-child(2) {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Make all text white on hover */
+.cardstest.block > div:hover p {
+  color: #fff;
+}
+
+/* Icons at the bottom */
+.cardstest.block > div > div:last-child {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Icon styling */
+.icon-gpictogram {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: 48px;
+   height: 48px;
+   img {
+     background: linear-gradient(135deg, #004eff 0%, #007bff 100%);
+     -webkit-mask-image: url('/icons/gpictogram.svg');
+   }
+
+
+}
+
+.icon img {
+  transition: filter 0.3s ease;
+}
+
+/* Invert icon color on hover */
+.cardstest.block > div:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* Responsive layout */
+@media (max-width: 1024px) {
+  .cardstest.block > div {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .cardstest.block > div {
+    width: 100%;
+  }
+}
+
+/* Style the wrapper to arrange content horizontally */
+.default-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* aligns top of text */
+  flex-wrap: wrap; /* wrap on smaller screens */
+  gap: 20px; /* optional spacing between heading and text */
+}
+
+/* Heading on the left */
+.default-content-wrapper h2 {
+  flex: 1 1 30%;
+  margin: 0;
+  font-weight: 300;
+  font-size: 32px;
+  margin-block-end:2rem;
+}
+
+/* Paragraph on the right */
+.default-content-wrapper p {
+  flex: 1 1 30%;
+  margin: 0;
+  font-size: calc(.04412rem + 1.47059vw);
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 768px) {
+  .default-content-wrapper {
+    flex-direction: column;
+  }
+
+  .default-content-wrapper p {
+    text-align: left;
+  }
+}
+
+/* in page banner */
+/* Make the layout a horizontal flex container */
+/* Main container becomes a card */
+/* Make the card full-width and styled */
+.inpagebanner.block {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+/* Set the height of the card */
+.inpagebanner.block > div {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 200px; /* 🔧 Adjust height as needed */
+}
+
+/* Left image section */
+.inpagebanner.block > div > div:first-child {
+  display: flex;
+}
+.inpagebanner.block > div > div:nth-child(2) {
+    background-color: #393939;
+    color: #fff;
+    padding-inline-start: 1rem;
+    padding-block-start: 1rem;
+    max-width: 35%;
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0;
+    }
+}
+/* Image fits container height */
+.inpagebanner.block picture,
+.inpagebanner.block img {
+  height: 100%;
+  width: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right text + button section */
+.inpagebanner.block > div > div:last-child {
+      flex: 1;
+      background-color: #393939;
+      color: #fff;
+      padding-top: 1.5rem;
+      display: flex;
+}
+
+/* Text styling */
+.inpagebanner.block > div > div:last-child p {
+  color: #fff;
+  margin-block-start: 1rem;
+  margin-left: 9rem;
+
+  a.button::after {
+      content: '';
+      display: inline-block;
+      width: 1em;               /* Adjust size as needed */
+      height: 1em;
+      background-image: url('/icons/parrow.svg');
+      background-size: contain;
+      margin-left: 5rem;
+      vertical-align: middle;
+      filter: brightness(0) invert(1);
+
+  }
+}
+
+/* Button styling */
+.inpagebanner.block .button-container .button {
+  color: #fff;
+  border: 1px solid transparent;
+  font-weight : 400;
+  width : 300px;
+  border-radius : 0;
+  text-align : start;
+
+}
+
+/* Responsive: stack layout on small screens */
+@media (max-width: 768px) {
+  .inpagebanner.block > div {
+    flex-direction: column;
+    height: auto; /* Let height grow naturally */
+  }
+
+  .inpagebanner.block picture,
+  .inpagebanner.block img {
+    width: 100%;
+    height: auto;
+  }
+
+  .inpagebanner.block > div > div:last-child {
+    padding: 16px;
+  }
 }

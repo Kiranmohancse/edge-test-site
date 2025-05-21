@@ -4,22 +4,85 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
 }
-
 .cards > ul > li {
-  border: 1px solid #dadada;
+  border: 1px solid #DADADA;
   background-color: var(--background-color);
-}
 
+}
+.cards > ul > li:hover {
+    background: linear-gradient(blue, teal);
+    .cards-card-body p:first-of-type {
+      display: none;
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+      transition-delay: 0s;
+    }
+    .cards-card-body p:nth-of-type(2) {
+            opacity: 1;
+            transform: translateZ(0);
+            transition-delay: .2s;
+            visibility: visible;
+    }
+}
+.cards > ul > li {
+  position: relative;
+  border: 1px solid #DADADA;
+  background-color: var(--background-color);
+  overflow: hidden;
+}
+/* Icon on top-left */
+.cards > ul > li::before {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 20px;
+  background-color: white; /* Optional: contrast background */
+  padding: 4px;
+  border-radius: 4px; /* Optional: slight rounding */
+  z-index: 1;
+  pointer-events: none;
+}
 .cards .cards-card-body {
-  margin: 16px;
+  margin-left: 16px;
+  margin-right : 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+   display: flex;
+   flex-direction: column;
+     .icon-gpictogram{
+        height: 48px;
+        width: 48px;
+     }
 }
-
+.cards .cards-card-body p:first-of-type:hover{
+  display: block;
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition-delay: 0s;
+}
+.cards .cards-card-body p:nth-of-type(2) {
+         opacity: 0;
+         transform: translate3d(0, -16px, 0);
+         transition: all .24s cubic-bezier(.2,0,.38,.9);
+         visibility: hidden;
+         transition-delay: .2s;
+         color: white;
+}
+.cards .cards-card-body p:nth-of-type(3) {
+  margin-top: auto;
+  padding-top: 1rem; /* optional spacing */
+}
+.cards .cards-card-body p:nth-of-type(4) {
+  margin-top: auto;
+  padding-top: 1rem; /* optional spacing */
+  display: flex;
+  justify-content: flex-end; /* aligns children to the left */
+   align-items: center;
+}
 .cards .cards-card-image {
   line-height: 0;
 }
-
 .cards > ul > li img {
   width: 100%;
   aspect-ratio: 4 / 3;

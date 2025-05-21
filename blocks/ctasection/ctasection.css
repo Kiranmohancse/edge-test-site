@@ -1,0 +1,92 @@
+/* Layout: heading left, blocks right */
+.ctasection-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Left: Heading */
+.ctasection-container .default-content-wrapper {
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding: 0;
+  margin: 0;
+  margin-inline-start: 2rem;
+}
+
+/* Right: Blocks */
+.ctasection-container .ctasection-wrapper {
+  flex: 1;
+}
+
+/* Horizontal list of blocks */
+.ctasection.block ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Each block: Remove card styling */
+.ctasection.block ul li {
+  flex: 1 1 calc(33.333% - 20px);
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: default;
+  transition: none;
+  min-height: auto;
+}
+
+/* Remove hover effect */
+.ctasection.block ul li:hover {
+  background: none;
+}
+
+/* Remove button-container spacing override */
+.cards-card-body:last-child {
+  margin-top: 0;
+}
+.cards-card-body .button-container {
+  display: inline-block;
+  margin-right: 12px; /* spacing between buttons */
+  margin-bottom: 0;
+  a {
+     background-color: #fff;
+     color : blue;
+  }
+}
+/* Ensure the button container div is horizontal */
+ .ctasection-container.cards-card-body:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ctasection-container {
+    flex-direction: column;
+  }
+
+  .default-content-wrapper,
+  .ctasection-wrapper {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .ctasection.block ul li {
+    flex: 1 1 48%;
+  }
+}
+
+@media (max-width: 600px) {
+  .ctasection.block ul li {
+    flex: 1 1 100%;
+  }
+}

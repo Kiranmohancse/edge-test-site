@@ -31,3 +31,54 @@
     order: unset;
   }
 }
+
+.columns-container {
+ .columns-wrapper .columns-2-cols > div {
+  h4 {
+       -webkit-background-clip: text;
+       caret-color: #0f62fe;
+       color: transparent;
+       display: inline-block;
+       background-image: linear-gradient(90deg, #0f62fe, #009d9a);
+       font-size:32px;
+       font-weight:300;
+  }
+       p {
+           font-size: var(--cds-body-long-02-font-size, 1rem);
+           font-weight: var(--cds-body-long-02-font-weight, 400);
+           letter-spacing: var(--cds-body-long-02-letter-spacing, 0);
+           line-height: var(--cds-body-long-02-line-height, 1.5rem);
+       }
+
+
+       /* Remove button styling to make it look like a simple link */
+      /* Make the button look like a plain link */
+      .button-container .button {
+        background: none;
+        border: none;
+        padding: 0;
+        color: #0f62fe; /* IBM blue or link color */
+        font-weight: normal;
+        font-size: 1rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px; /* Space between text and icon */
+        position: relative;
+      }
+
+      /* Add a link icon using ::after */
+      .button-container .button::after {
+        content: url('icons/parrow.svg'); /* Replace with your actual icon path */
+        width: 20px;
+        height: 16px;
+         background: url('/icons/parrow.svg');
+         filter: invert(30%) sepia(93%) saturate(3882%) hue-rotate(204deg) brightness(93%) contrast(101%);
+      }
+
+      /* Optional: icon hover effect */
+      .button-container .button:hover::after {
+        filter: brightness(0.7);
+      }
+  }
+}
