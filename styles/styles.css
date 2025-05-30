@@ -213,10 +213,6 @@ color: #0F62FE !important; /* IBM blue */
   height: 100%;
   width: 100%;
 }
-/* sections */
-main > .section {
-  margin: 40px 0;
-}
 main > .section > div {
   max-width: 1585px;
   margin: auto;
