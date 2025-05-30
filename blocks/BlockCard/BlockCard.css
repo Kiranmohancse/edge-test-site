@@ -1,0 +1,93 @@
+/* 1. Container: Make list display as grid for card layout */
+.blockcard-wrapper ul {
+  display: flex;
+  padding: 0;
+}
+.blockcard-container .default-content-wrapper h2{
+      font-size: calc(1.07813rem + 2.34375vw);
+}
+/* 2. Card wrapper */
+.blockcard-wrapper ul li {
+  display: flex;
+  flex-direction: column;
+  width: 25%; /* 4 per row with spacing */
+  background: #fff;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  background: #f4f4f4;
+  outline-color: #e0e0e0;
+  outline: 1px solid var(--cds-border-tile-01, #c6c6c6);
+  .cards-card-body {
+   padding-inline: 1rem;
+  }
+}
+
+/* Optional: Hover effect */
+.blockcard-wrapper ul li:hover {
+  background-color: #e0e0e0;
+}
+
+/* 3. Image block (on top) */
+.cards-card-image {
+  margin-bottom: 1rem;
+}
+
+.cards-card-image picture,
+.cards-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 4. Text block */
+.cards-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* 5. Text spacing */
+.cards-card-body {
+   p:first-of-type {
+       color: var(--cds-text-secondary, #525252);
+       font-size: var(--cds-label-02-font-size, .875rem);
+       letter-spacing: var(--cds-label-02-letter-spacing, .16px);
+       line-height: var(--cds-label-02-line-height, 1.28572);
+       margin-block-end: .5rem;
+   }
+    p:nth-of-type(2) {
+     margin-top:0;
+     margin-block-end: 4rem;
+     font-size: var(--cds-heading-03-font-size, 1.25rem);
+     font-weight: var(--cds-heading-03-font-weight, 400);
+     letter-spacing: var(--cds-heading-03-letter-spacing, 0);
+     line-height: var(--cds-heading-03-line-height, 1.4);
+     }
+   }
+    p:nth-of-type(3) {
+        margin-top: 0;
+        max-width: 80%;
+        line-height: 1.5;
+      }
+}
+
+/* 6. Push the last <p> (usually icon) to the bottom */
+.cards-card-body p:last-of-type {
+  margin-top: auto;
+}
+
+/* 7. Responsive layout */
+@media (max-width: 1024px) {
+  .blockcard-wrapper ul li {
+    width: 48%;
+  }
+}
+
+@media (max-width: 600px) {
+  .blockcard-wrapper ul li {
+    width: 100%;
+  }
+}
