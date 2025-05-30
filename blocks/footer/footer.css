@@ -6,7 +6,7 @@ footer {
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: 20px 24px 24px;
 }
 
 footer .footer p {
@@ -14,12 +14,12 @@ footer .footer p {
     margin: 0 0 0.5rem 0; /* Optional: spacing between paragraphs */
     font-weight: 400;
     font-size: 16px;
-
+    color:#fff;
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 20px 30px 24px;
   }
 }
 
@@ -47,6 +47,12 @@ footer .footer p {
   background-image: none !important;   /* Prevent background icons */
   padding-right: 0 !important;         /* Remove space for icon if added */
   position: relative;
+  background: none;
+      padding: 0;
+      color: #CCCCCC !important;
+      font-weight: 300 !important;
+      text-decoration: none;
+      display: flex;
 }
 
 /* Remove any pseudo-element icons (commonly used for external links) */
@@ -58,12 +64,9 @@ footer .footer p {
 
 /* Optional: Hover effect */
 .section.footerset a:hover {
-  text-decoration: underline;
-  color: #cccccc;
-}
-.section.footerset .columns-img-col {
-  margin-top: -500px; /* Adjust this value as needed */
-  margin-left: -4rem;
+   text-decoration: underline;
+   color: #FFFFFF !important;
+   color: #FFFFFF !important;
 }
 /* For all <p> tags inside the 4-column block */
 .columns-4-cols p {
